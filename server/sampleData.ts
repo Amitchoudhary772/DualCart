@@ -24,9 +24,9 @@ export async function seedDatabase() {
         reviewCount: 124
       },
       {
-        name: "Smart Fitness Watch",
-        description: "Track your health and fitness with this advanced smartwatch featuring heart rate monitoring and GPS.",
-        price: "8999",
+        name: "MacBook Pro 16-inch",
+        description: "Powerful Apple laptop with M-series chip, perfect for professionals and creators with stunning Retina display.",
+        price: "199999",
         imageUrl: "/src/assets/mbp16-silver-cto-hero-202410_FMT_WHH_1755750600152.jpeg",
         category: "Electronics",
         inStock: true,
@@ -35,19 +35,19 @@ export async function seedDatabase() {
         reviewCount: 89
       },
       {
-        name: "Eco-Friendly Water Bottle",
-        description: "Sustainable stainless steel water bottle that keeps drinks cold for 24 hours and hot for 12 hours.",
-        price: "1299",
+        name: "Premium Cotton T-Shirt",
+        description: "Comfortable, high-quality cotton t-shirt with modern fit and stylish design. Perfect for casual wear.",
+        price: "799",
         imageUrl: "/src/assets/images_1755750599979.jpeg",
-        category: "Lifestyle",
+        category: "Fashion",
         inStock: true,
         featured: false,
         rating: "4.7",
         reviewCount: 67
       },
       {
-        name: "Professional Laptop Backpack",
-        description: "Durable and stylish laptop backpack with multiple compartments and USB charging port.",
+        name: "Travel Backpack",
+        description: "Durable and stylish travel backpack with multiple compartments perfect for adventures and daily use.",
         price: "2499",
         imageUrl: "/src/assets/images (2)_1755750600018.jpeg",
         category: "Accessories",
@@ -57,9 +57,9 @@ export async function seedDatabase() {
         reviewCount: 156
       },
       {
-        name: "Organic Green Tea Set",
-        description: "Premium organic green tea collection with 6 different flavors and a beautiful tea infuser.",
-        price: "899",
+        name: "Fresh Juice Blend",
+        description: "Healthy and refreshing fruit juice blend made from premium organic fruits. Perfect for daily nutrition.",
+        price: "299",
         imageUrl: "/src/assets/images (3)_1755750600193.jpeg",
         category: "Food & Beverages",
         inStock: true,
@@ -68,9 +68,9 @@ export async function seedDatabase() {
         reviewCount: 43
       },
       {
-        name: "Wireless Charging Stand",
-        description: "Fast wireless charging stand compatible with all Qi-enabled devices. Perfect for desk use.",
-        price: "1799",
+        name: "Smartphone",
+        description: "Latest smartphone with advanced camera system, fast processor and long-lasting battery life.",
+        price: "45999",
         imageUrl: "/src/assets/images (4)_1755750600475.jpeg",
         category: "Electronics",
         inStock: true,
@@ -85,8 +85,8 @@ export async function seedDatabase() {
     // Add sample affiliate deals
     const sampleDeals = [
       {
-        title: "50% Off Premium Skincare Set",
-        description: "Get glowing skin with this complete skincare routine. Includes cleanser, toner, serum, and moisturizer.",
+        title: "Premium Cosmetics Set - 50% Off",
+        description: "Complete beauty collection with makeup essentials. High-quality cosmetics for everyday glamour.",
         imageUrl: "/src/assets/images (5)_1755750600516.jpeg",
         category: "Beauty",
         originalPrice: "3999",
@@ -96,8 +96,8 @@ export async function seedDatabase() {
         isActive: true
       },
       {
-        title: "Amazon Echo Dot (5th Gen) - 40% Off",
-        description: "Smart speaker with Alexa. Control your smart home, play music, and get answers to your questions.",
+        title: "Smart Home Device - 40% Off",
+        description: "Voice-controlled smart speaker with AI assistant. Perfect for smart home control and entertainment.",
         imageUrl: "/src/assets/images (6)_1755750600555.jpeg",
         category: "Electronics",
         originalPrice: "4999",
@@ -107,8 +107,8 @@ export async function seedDatabase() {
         isActive: true
       },
       {
-        title: "Best Seller Book Collection - 30% Off",
-        description: "Collection of top 10 bestselling books this year. Perfect for book lovers and gift giving.",
+        title: "Premium Book Collection - 30% Off",
+        description: "Curated collection of bestselling books. Perfect for reading enthusiasts and knowledge seekers.",
         imageUrl: "/src/assets/images (7)_1755750600592.jpeg",
         category: "Books",
         originalPrice: "2999",
@@ -118,8 +118,8 @@ export async function seedDatabase() {
         isActive: true
       },
       {
-        title: "Yoga Mat & Accessories Bundle - 45% Off",
-        description: "Complete yoga starter kit with premium mat, blocks, strap, and carry bag. Perfect for beginners and pros.",
+        title: "Fitness Equipment Set - 45% Off",
+        description: "Complete fitness accessories bundle perfect for home workouts and staying healthy.",
         imageUrl: "/src/assets/images (8)_1755750600630.jpeg",
         category: "Fitness",
         originalPrice: "3499",
@@ -129,8 +129,8 @@ export async function seedDatabase() {
         isActive: true
       },
       {
-        title: "Kitchen Knife Set - Professional Grade",
-        description: "5-piece professional kitchen knife set with wooden block. Sharp, durable, and ergonomic design.",
+        title: "Premium Kitchen Appliance - 40% Off",
+        description: "High-quality kitchen appliance for modern cooking. Efficient and stylish design for every home.",
         imageUrl: "/src/assets/images (9)_1755750600667.jpeg",
         category: "Kitchen",
         originalPrice: "5999",
