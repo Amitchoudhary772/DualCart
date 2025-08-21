@@ -13,6 +13,8 @@ import About from "@/pages/About";
 import Services from "@/pages/Services";
 import HelpCenter from "@/pages/HelpCenter";
 import Contact from "@/pages/Contact";
+import Privacy from "@/pages/Privacy";
+import Checkout from "@/pages/Checkout";
 import Admin from "@/pages/Admin";
 
 function Router() {
@@ -29,6 +31,7 @@ function Router() {
           <Route path="/services" component={Services} />
           <Route path="/help" component={HelpCenter} />
           <Route path="/contact" component={Contact} />
+          <Route path="/privacy" component={Privacy} />
         </>
       ) : (
         <>
@@ -39,6 +42,8 @@ function Router() {
           <Route path="/services" component={Services} />
           <Route path="/help" component={HelpCenter} />
           <Route path="/contact" component={Contact} />
+          <Route path="/privacy" component={Privacy} />
+          <Route path="/checkout" component={Checkout} />
           <Route path="/admin" component={Admin} />
         </>
       )}

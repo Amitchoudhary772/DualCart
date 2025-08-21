@@ -75,7 +75,7 @@ export default function Cart({ onClose }: CartProps) {
     },
   });
 
-  const total = cartItems.reduce((sum, item) => sum + (parseFloat(item.product.price) * item.quantity), 0);
+  const total = cartItems.reduce((sum, item) => sum + (parseFloat(item.product.price) * (item.quantity || 0)), 0);
 
   const handleUpdateQuantity = (id: string, quantity: number) => {
     if (quantity < 1) return;
@@ -87,11 +87,7 @@ export default function Cart({ onClose }: CartProps) {
   };
 
   const handleCheckout = () => {
-    // Mock checkout - in real app, would integrate with payment processor
-    toast({
-      title: "Checkout",
-      description: "Checkout functionality would be integrated with payment gateway.",
-    });
+    window.location.href = "/checkout";
   };
 
   if (isLoading) {
@@ -120,7 +116,7 @@ export default function Cart({ onClose }: CartProps) {
       <div className="flex items-center justify-between mb-6">
         <h3 className="text-lg font-semibold text-gray-900">Shopping Cart</h3>
         <Badge variant="outline">
-          {cartItems.reduce((total, item) => total + item.quantity, 0)} items
+          {cartItems.reduce((total, item) => total + (item.quantity || 0), 0)} items
         </Badge>
       </div>
 
@@ -141,16 +137,16 @@ export default function Cart({ onClose }: CartProps) {
                 <Button
                   variant="outline"
                   size="sm"
-                  onClick={() => handleUpdateQuantity(item.id, item.quantity - 1)}
-                  disabled={item.quantity <= 1 || updateQuantityMutation.isPending}
+                  onClick={() => handleUpdateQuantity(item.id, (item.quantity || 1) - 1)}
+                  disabled={(item.quantity || 0) <= 1 || updateQuantityMutation.isPending}
                 >
                   <Minus className="w-3 h-3" />
                 </Button>
-                <span className="mx-3 text-gray-900 min-w-[2rem] text-center">{item.quantity}</span>
+                <span className="mx-3 text-gray-900 min-w-[2rem] text-center">{item.quantity || 0}</span>
                 <Button
                   variant="outline"
                   size="sm"
-                  onClick={() => handleUpdateQuantity(item.id, item.quantity + 1)}
+                  onClick={() => handleUpdateQuantity(item.id, (item.quantity || 0) + 1)}
                   disabled={updateQuantityMutation.isPending}
                 >
                   <Plus className="w-3 h-3" />

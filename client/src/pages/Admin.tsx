@@ -64,17 +64,17 @@ export default function Admin() {
   // Queries
   const { data: products = [] } = useQuery<Product[]>({
     queryKey: ['/api/products'],
-    enabled: isAuthenticated && user?.isAdmin,
+    enabled: !!(isAuthenticated && user?.isAdmin),
   });
 
   const { data: affiliateDeals = [] } = useQuery<AffiliateDeal[]>({
     queryKey: ['/api/affiliate-deals'],
-    enabled: isAuthenticated && user?.isAdmin,
+    enabled: !!(isAuthenticated && user?.isAdmin),
   });
 
   const { data: contactMessages = [] } = useQuery<ContactMessage[]>({
     queryKey: ['/api/contact'],
-    enabled: isAuthenticated && user?.isAdmin,
+    enabled: !!(isAuthenticated && user?.isAdmin),
   });
 
   // Mutations
@@ -250,10 +250,10 @@ export default function Admin() {
   };
 
   const stats = {
-    totalProducts: products.length,
-    totalDeals: affiliateDeals.length,
-    totalMessages: contactMessages.length,
-    unreadMessages: contactMessages.filter(m => !m.isRead).length
+    totalProducts: products?.length || 0,
+    totalDeals: affiliateDeals?.length || 0,
+    totalMessages: contactMessages?.length || 0,
+    unreadMessages: contactMessages?.filter((m: ContactMessage) => !m.isRead).length || 0
   };
 
   if (isLoading) {
@@ -468,11 +468,11 @@ export default function Admin() {
                 {/* Products List */}
                 <Card>
                   <CardHeader>
-                    <CardTitle>Existing Products ({products.length})</CardTitle>
+                    <CardTitle>Existing Products ({products?.length || 0})</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4 max-h-96 overflow-y-auto">
-                      {products.map((product) => (
+                      {products?.map((product: Product) => (
                         <div key={product.id} className="flex items-center justify-between p-4 border rounded-lg">
                           <div className="flex-1">
                             <h4 className="font-medium">{product.name}</h4>
@@ -635,11 +635,11 @@ export default function Admin() {
                 {/* Affiliate Deals List */}
                 <Card>
                   <CardHeader>
-                    <CardTitle>Existing Deals ({affiliateDeals.length})</CardTitle>
+                    <CardTitle>Existing Deals ({affiliateDeals?.length || 0})</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4 max-h-96 overflow-y-auto">
-                      {affiliateDeals.map((deal) => (
+                      {affiliateDeals?.map((deal: AffiliateDeal) => (
                         <div key={deal.id} className="flex items-center justify-between p-4 border rounded-lg">
                           <div className="flex-1">
                             <h4 className="font-medium">{deal.title}</h4>
@@ -686,16 +686,16 @@ export default function Admin() {
             <TabsContent value="messages" className="space-y-6">
               <Card>
                 <CardHeader>
-                  <CardTitle>Contact Messages ({contactMessages.length})</CardTitle>
+                  <CardTitle>Contact Messages ({contactMessages?.length || 0})</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    {contactMessages.length === 0 ? (
+                    {(contactMessages?.length || 0) === 0 ? (
                       <div className="text-center py-8 text-gray-500">
                         No contact messages yet.
                       </div>
                     ) : (
-                      contactMessages.map((message) => (
+                      contactMessages?.map((message: ContactMessage) => (
                         <div key={message.id} className={`p-4 border rounded-lg ${!message.isRead ? 'bg-blue-50 border-blue-200' : ''}`}>
                           <div className="flex items-start justify-between">
                             <div className="flex-1">

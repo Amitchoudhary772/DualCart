@@ -258,6 +258,33 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Order routes
+  app.post('/api/orders', isAuthenticated, async (req: any, res) => {
+    try {
+      const userId = req.user.claims.sub;
+      
+      // Mock order processing - in a real app, you'd integrate with payment gateway
+      const orderData = {
+        userId,
+        ...req.body,
+        status: 'confirmed',
+        orderDate: new Date()
+      };
+      
+      // Clear the user's cart after successful order
+      await storage.clearUserCart(userId);
+      
+      res.json({ 
+        message: "Order placed successfully", 
+        orderId: `ORD-${Date.now()}`,
+        ...orderData 
+      });
+    } catch (error) {
+      console.error("Error creating order:", error);
+      res.status(500).json({ message: "Failed to create order" });
+    }
+  });
+
   // Contact routes
   app.post('/api/contact', async (req, res) => {
     try {

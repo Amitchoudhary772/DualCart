@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/sheet";
 import { useAuth } from "@/hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
-import Cart from "./Cart";
+import Cart from "@/components/Cart";
 import type { CartItem, Product } from "@shared/schema";
 import { 
   Search, 
@@ -31,7 +31,7 @@ export default function Navigation() {
     enabled: isAuthenticated,
   });
 
-  const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+  const cartCount = cartItems.reduce((total, item) => total + (item.quantity || 0), 0);
 
   const navItems = [
     { href: "/", label: "Home" },
