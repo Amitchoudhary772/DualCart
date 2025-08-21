@@ -12,7 +12,9 @@ export async function apiRequest(
   url: string,
   data?: unknown | undefined,
 ): Promise<Response> {
-  const res = await fetch(url, {
+  const baseUrl = import.meta.env.VITE_API_BASE_URL || '';
+  const fullUrl = baseUrl + url;
+  const res = await fetch(fullUrl, {
     method,
     headers: data ? { "Content-Type": "application/json" } : {},
     body: data ? JSON.stringify(data) : undefined,
@@ -29,7 +31,34 @@ export const getQueryFn: <T>(options: {
 }) => QueryFunction<T> =
   ({ on401: unauthorizedBehavior }) =>
   async ({ queryKey }) => {
-    const res = await fetch(queryKey.join("/") as string, {
+    const baseUrl = import.meta.env.VITE_API_BASE_URL || '';
+    
+    // If no API base URL, use mock data for static deployment
+    if (!baseUrl) {
+      const { mockProducts, mockAffiliateDeals, mockUser } = await import('../data/mockData');
+      const endpoint = queryKey.join("/");
+      
+      if (endpoint.includes('/api/products/featured')) {
+        return mockProducts.filter(p => p.featured);
+      }
+      if (endpoint.includes('/api/products')) {
+        return mockProducts;
+      }
+      if (endpoint.includes('/api/affiliate-deals')) {
+        return mockAffiliateDeals;
+      }
+      if (endpoint.includes('/api/auth/user')) {
+        return mockUser;
+      }
+      if (endpoint.includes('/api/cart')) {
+        return [];
+      }
+      
+      return null;
+    }
+    
+    const url = baseUrl + queryKey.join("/");
+    const res = await fetch(url, {
       credentials: "include",
     });
 
