@@ -15,6 +15,7 @@ import HelpCenter from "@/pages/HelpCenter";
 import Contact from "@/pages/Contact";
 import Privacy from "@/pages/Privacy";
 import Checkout from "@/pages/Checkout";
+import Auth from "@/pages/Auth";
 import Admin from "@/pages/Admin";
 
 function Router() {
@@ -22,7 +23,11 @@ function Router() {
 
   return (
     <Switch>
-      {isLoading || !isAuthenticated ? (
+      {isLoading ? (
+        <div className="min-h-screen flex items-center justify-center">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary"></div>
+        </div>
+      ) : !isAuthenticated ? (
         <>
           <Route path="/" component={Landing} />
           <Route path="/shop" component={Shop} />
@@ -32,6 +37,7 @@ function Router() {
           <Route path="/help" component={HelpCenter} />
           <Route path="/contact" component={Contact} />
           <Route path="/privacy" component={Privacy} />
+          <Route path="/auth" component={Auth} />
         </>
       ) : (
         <>

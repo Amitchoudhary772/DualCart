@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { setupAuth, isAuthenticated } from "./replitAuth";
+import session from "express-session";
 import { 
   insertProductSchema, 
   insertAffiliateDealSchema, 
@@ -10,16 +10,94 @@ import {
 } from "@shared/schema";
 import { fromZodError } from "zod-validation-error";
 
-export async function registerRoutes(app: Express): Promise<Server> {
-  // Auth middleware
-  await setupAuth(app);
+// Simple fake authentication middleware
+const isAuthenticated = (req: any, res: any, next: any) => {
+  if (req.session?.user) {
+    next();
+  } else {
+    res.status(401).json({ message: "Unauthorized" });
+  }
+};
 
-  // Auth routes
+export async function registerRoutes(app: Express): Promise<Server> {
+  // Setup simple session
+  app.use(session({
+    secret: 'fake-secret-key',
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: false, maxAge: 24 * 60 * 60 * 1000 } // 24 hours
+  }));
+
+  // Fake Auth routes
+  app.post('/api/auth/login', async (req: any, res) => {
+    try {
+      const { username, password } = req.body;
+      
+      // Accept any username/password combination
+      if (username && password) {
+        // Create or get user with this username
+        let user = await storage.getUserByUsername(username);
+        if (!user) {
+          // Create new user if doesn't exist
+          user = await storage.createUser({
+            id: `user_${Date.now()}`,
+            email: `${username}@fake.com`,
+            firstName: username,
+            lastName: "User",
+            profileImageUrl: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
+            isAdmin: username.toLowerCase() === 'admin'
+          });
+        }
+        
+        req.session.user = user;
+        res.json({ message: "Login successful", user });
+      } else {
+        res.status(400).json({ message: "Username and password required" });
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+      res.status(500).json({ message: "Login failed" });
+    }
+  });
+
+  app.post('/api/auth/signup', async (req: any, res) => {
+    try {
+      const { username, password, email } = req.body;
+      
+      // Accept any signup data
+      if (username && password) {
+        const user = await storage.createUser({
+          id: `user_${Date.now()}`,
+          email: email || `${username}@fake.com`,
+          firstName: username,
+          lastName: "User",
+          profileImageUrl: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
+          isAdmin: username.toLowerCase() === 'admin'
+        });
+        
+        req.session.user = user;
+        res.json({ message: "Signup successful", user });
+      } else {
+        res.status(400).json({ message: "Username and password required" });
+      }
+    } catch (error) {
+      console.error("Signup error:", error);
+      res.status(500).json({ message: "Signup failed" });
+    }
+  });
+
+  app.post('/api/auth/logout', (req: any, res) => {
+    req.session.destroy((err: any) => {
+      if (err) {
+        return res.status(500).json({ message: "Logout failed" });
+      }
+      res.json({ message: "Logout successful" });
+    });
+  });
+
   app.get('/api/auth/user', isAuthenticated, async (req: any, res) => {
     try {
-      const userId = req.user.claims.sub;
-      const user = await storage.getUser(userId);
-      res.json(user);
+      res.json(req.session.user);
     } catch (error) {
       console.error("Error fetching user:", error);
       res.status(500).json({ message: "Failed to fetch user" });
@@ -62,7 +140,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   app.post('/api/products', isAuthenticated, async (req: any, res) => {
     try {
-      const user = await storage.getUser(req.user.claims.sub);
+      const user = req.session.user;
       if (!user?.isAdmin) {
         return res.status(403).json({ message: "Admin access required" });
       }
@@ -83,7 +161,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   app.put('/api/products/:id', isAuthenticated, async (req: any, res) => {
     try {
-      const user = await storage.getUser(req.user.claims.sub);
+      const user = req.session.user;
       if (!user?.isAdmin) {
         return res.status(403).json({ message: "Admin access required" });
       }
@@ -104,7 +182,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   app.delete('/api/products/:id', isAuthenticated, async (req: any, res) => {
     try {
-      const user = await storage.getUser(req.user.claims.sub);
+      const user = req.session.user;
       if (!user?.isAdmin) {
         return res.status(403).json({ message: "Admin access required" });
       }
@@ -130,7 +208,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   app.post('/api/affiliate-deals', isAuthenticated, async (req: any, res) => {
     try {
-      const user = await storage.getUser(req.user.claims.sub);
+      const user = req.session.user;
       if (!user?.isAdmin) {
         return res.status(403).json({ message: "Admin access required" });
       }
@@ -158,7 +236,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   app.put('/api/affiliate-deals/:id', isAuthenticated, async (req: any, res) => {
     try {
-      const user = await storage.getUser(req.user.claims.sub);
+      const user = req.session.user;
       if (!user?.isAdmin) {
         return res.status(403).json({ message: "Admin access required" });
       }
@@ -179,7 +257,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   app.delete('/api/affiliate-deals/:id', isAuthenticated, async (req: any, res) => {
     try {
-      const user = await storage.getUser(req.user.claims.sub);
+      const user = req.session.user;
       if (!user?.isAdmin) {
         return res.status(403).json({ message: "Admin access required" });
       }
@@ -195,7 +273,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Cart routes
   app.get('/api/cart', isAuthenticated, async (req: any, res) => {
     try {
-      const userId = req.user.claims.sub;
+      const userId = req.session.user.id;
       const cartItems = await storage.getUserCart(userId);
       res.json(cartItems);
     } catch (error) {
@@ -206,7 +284,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   app.post('/api/cart', isAuthenticated, async (req: any, res) => {
     try {
-      const userId = req.user.claims.sub;
+      const userId = req.session.user.id;
       const result = insertCartItemSchema.safeParse({ ...req.body, userId });
       
       if (!result.success) {
@@ -249,7 +327,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   app.delete('/api/cart', isAuthenticated, async (req: any, res) => {
     try {
-      const userId = req.user.claims.sub;
+      const userId = req.session.user.id;
       await storage.clearUserCart(userId);
       res.json({ message: "Cart cleared" });
     } catch (error) {
@@ -261,7 +339,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Order routes
   app.post('/api/orders', isAuthenticated, async (req: any, res) => {
     try {
-      const userId = req.user.claims.sub;
+      const userId = req.session.user.id;
       
       // Mock order processing - in a real app, you'd integrate with payment gateway
       const orderData = {
@@ -304,7 +382,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   app.get('/api/contact', isAuthenticated, async (req: any, res) => {
     try {
-      const user = await storage.getUser(req.user.claims.sub);
+      const user = req.session.user;
       if (!user?.isAdmin) {
         return res.status(403).json({ message: "Admin access required" });
       }

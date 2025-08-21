@@ -32,11 +32,26 @@ export default function Landing() {
               Discover amazing products from our store and exclusive affiliate deals - all in one place
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-white text-primary px-8 py-3 hover:bg-gray-100">
+              <Button 
+                className="bg-white text-primary px-8 py-3 hover:bg-gray-100"
+                onClick={() => window.location.href = "/shop"}
+              >
                 Browse Our Products
               </Button>
-              <Button className="bg-accent text-white px-8 py-3 hover:bg-yellow-500">
+              <Button 
+                className="bg-accent text-white px-8 py-3 hover:bg-yellow-500"
+                onClick={() => window.location.href = "/deals"}
+              >
                 View Latest Deals
+              </Button>
+            </div>
+            <div className="mt-6">
+              <Button 
+                size="lg" 
+                className="bg-green-500 hover:bg-green-600 text-white"
+                onClick={() => window.location.href = "/auth"}
+              >
+                🚀 Start Shopping - Login / Sign Up (Any Username/Password Works!)
               </Button>
             </div>
           </div>
