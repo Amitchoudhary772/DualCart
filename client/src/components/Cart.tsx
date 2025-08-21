@@ -124,7 +124,7 @@ export default function Cart({ onClose }: CartProps) {
         {cartItems.map((item) => (
           <div key={item.id} className="flex items-center space-x-4 p-4 border border-gray-200 rounded-lg">
             <img
-              src={item.product.imageUrl || "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=80&h=80&fit=crop"}
+              src={item.product.imageUrl || "/src/assets/shopping (1)_1755750600435.webp"}
               alt={item.product.name}
               className="w-16 h-16 object-cover rounded"
             />

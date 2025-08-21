@@ -90,7 +90,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       <div className="relative">
         <div className="aspect-square overflow-hidden rounded-t-lg">
           <img
-            src={product.imageUrl || "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=400&fit=crop"}
+            src={product.imageUrl || "/src/assets/004AY0001_04_Front_1755750600356.jpg"}
             alt={product.name}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           />

@@ -20,7 +20,7 @@ export default function AffiliateCard({ deal }: AffiliateCardProps) {
     <Card className="hover:shadow-lg transition-shadow duration-300 border-l-4 border-l-accent">
       <div className="aspect-video overflow-hidden rounded-t-lg">
         <img
-          src={deal.imageUrl || "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=250&fit=crop"}
+          src={deal.imageUrl || "/src/assets/shopping_1755750600114.webp"}
           alt={deal.title}
           className="w-full h-full object-cover"
         />
