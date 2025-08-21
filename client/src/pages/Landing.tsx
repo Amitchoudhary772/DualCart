@@ -51,7 +51,7 @@ export default function Landing() {
                 className="bg-green-500 hover:bg-green-600 text-white"
                 onClick={() => window.location.href = "/auth"}
               >
-                🚀 Start Shopping - Login / Sign Up (Any Username/Password Works!)
+                Start Shopping - Join Now
               </Button>
             </div>
           </div>
