@@ -1,12 +1,13 @@
-# ShopMart E-commerce Platform
+# Digital Aryan 21 - Ultra-Premium E-commerce Platform
 
 ## Overview
 
-ShopMart is a modern e-commerce platform that combines both direct product sales and affiliate marketing. The application features a React frontend with a TypeScript Express backend, utilizing PostgreSQL with Drizzle ORM for data management. Users can browse and purchase products from the store's inventory while also discovering deals from affiliate partners. The platform includes authentication via Replit Auth, shopping cart functionality, and an admin panel for content management.
+Digital Aryan 21 is an ultra-premium luxury e-commerce platform that combines sophisticated product sales with exclusive affiliate marketing. The application features a React frontend with TypeScript Express backend, utilizing PostgreSQL with Drizzle ORM for data management. The platform showcases a high-end luxury aesthetic with premium black/gold color schemes, elegant typography using Playfair Display and Montserrat fonts, and sophisticated animations. Users experience an exclusive shopping environment with carefully curated products and premium deals from elite brand partners.
 
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
+Brand identity: "Digital Aryan 21" - Ultra-premium luxury quality design with black/gold color theme.
 
 ## System Architecture
 

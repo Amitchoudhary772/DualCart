@@ -59,14 +59,14 @@ export default function Navigation() {
   };
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
+    <header className="bg-black/95 backdrop-blur-md border-b border-amber-500/20 shadow-2xl sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/">
-              <h1 className="text-2xl font-bold text-primary cursor-pointer">
-                ShopMart
+              <h1 className="text-3xl font-bold bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent cursor-pointer tracking-wide">
+                Digital Aryan 21
               </h1>
             </Link>
             
@@ -75,10 +75,10 @@ export default function Navigation() {
               {navItems.map((item) => (
                 <Link key={item.href} href={item.href}>
                   <a
-                    className={`px-3 py-2 text-sm font-medium transition-colors ${
+                    className={`px-4 py-2 text-sm font-medium transition-all duration-300 ${
                       location === item.href
-                        ? "text-primary"
-                        : "text-gray-700 hover:text-primary"
+                        ? "text-amber-400 border-b-2 border-amber-400"
+                        : "text-amber-100 hover:text-amber-300 hover:scale-105"
                     }`}
                   >
                     {item.label}

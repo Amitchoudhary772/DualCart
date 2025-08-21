@@ -17,41 +17,45 @@ export default function Landing() {
   });
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black">
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-primary to-blue-600 text-white">
-        <div className="absolute inset-0 bg-black opacity-20"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+      <section className="relative bg-gradient-to-br from-black via-amber-900/20 to-black text-white overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-amber-500/10 via-transparent to-amber-600/10"></div>
+        <div className="absolute top-0 left-0 w-full h-full">
+          <div className="absolute top-10 left-10 w-32 h-32 bg-amber-400/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-20 w-48 h-48 bg-amber-500/15 rounded-full blur-3xl"></div>
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Shop Smart, Save More
+            <h1 className="text-5xl md:text-8xl font-serif font-black mb-8 bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 bg-clip-text text-transparent leading-tight">
+              Digital Aryan 21
             </h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-              Discover amazing products from our store and exclusive affiliate deals - all in one place
+            <p className="text-xl md:text-3xl mb-12 max-w-4xl mx-auto text-amber-100/90 font-light tracking-wide">
+              Experience Ultra-Premium Digital Excellence • Luxury Technology Solutions • Exclusive Collections
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-8 justify-center">
               <Button 
-                className="bg-white text-primary px-8 py-3 hover:bg-gray-100"
+                className="bg-gradient-to-r from-amber-500 to-yellow-600 text-black px-12 py-4 text-lg font-semibold hover:from-amber-400 hover:to-yellow-500 hover:scale-105 transition-all duration-300 shadow-2xl"
                 onClick={() => window.location.href = "/shop"}
               >
-                Browse Our Products
+                Explore Premium Collection
               </Button>
               <Button 
-                className="bg-accent text-white px-8 py-3 hover:bg-yellow-500"
+                className="bg-transparent border-2 border-amber-400 text-amber-300 px-12 py-4 text-lg font-semibold hover:bg-amber-400 hover:text-black hover:scale-105 transition-all duration-300"
                 onClick={() => window.location.href = "/deals"}
               >
-                View Latest Deals
+                Exclusive Offers
               </Button>
             </div>
-            <div className="mt-6">
+            <div className="mt-12">
               <Button 
                 size="lg" 
-                className="bg-green-500 hover:bg-green-600 text-white"
+                className="bg-gradient-to-r from-black to-gray-900 border border-amber-500 text-amber-400 px-16 py-6 text-xl font-bold hover:bg-gradient-to-r hover:from-amber-500 hover:to-yellow-600 hover:text-black hover:scale-110 transition-all duration-500 shadow-2xl"
                 onClick={() => window.location.href = "/auth"}
               >
-                Start Shopping - Join Now
+                Enter Exclusive Access
               </Button>
             </div>
           </div>
@@ -59,11 +63,11 @@ export default function Landing() {
       </section>
 
       {/* Featured Products */}
-      <section className="py-16 bg-white">
+      <section className="py-24 bg-gradient-to-br from-gray-900 via-black to-gray-900 border-t border-amber-500/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Featured Products</h2>
-            <p className="text-lg text-gray-600">Handpicked items from our exclusive collection</p>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl font-serif font-bold bg-gradient-to-r from-amber-300 to-yellow-500 bg-clip-text text-transparent mb-6">Premium Collection</h2>
+            <p className="text-xl text-amber-100/80 max-w-2xl mx-auto font-light">Meticulously curated luxury items that define excellence and sophistication</p>
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -75,11 +79,11 @@ export default function Landing() {
       </section>
 
       {/* Affiliate Deals */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-24 bg-gradient-to-br from-black via-amber-900/10 to-black border-t border-amber-500/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Exclusive Affiliate Deals</h2>
-            <p className="text-lg text-gray-600">Amazing offers from our trusted partners</p>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl font-serif font-bold bg-gradient-to-r from-yellow-400 to-amber-500 bg-clip-text text-transparent mb-6">Exclusive Partnerships</h2>
+            <p className="text-xl text-amber-100/80 max-w-2xl mx-auto font-light">Privileged access to ultra-premium deals from our elite brand partners</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
