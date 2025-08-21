@@ -39,17 +39,30 @@ export default function Shop() {
   const categories = Array.from(new Set(products.map(p => p.category).filter(Boolean)));
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-white">
       <Navigation />
       
       {/* Page Header */}
-      <section className="bg-white border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex justify-between items-center">
-            <div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-4">Our Shop</h1>
-              <p className="text-lg text-gray-600">Premium products directly from our store</p>
-            </div>
+      <section className="bg-gradient-to-br from-black to-red-900 text-white py-16 lg:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 lg:mb-6">
+              Our <span className="text-red-400">Shop</span>
+            </h1>
+            <p className="text-lg lg:text-xl text-gray-200 max-w-3xl mx-auto">
+              Quality products at best prices - सभी latest items यहाँ मिलेंगे!
+            </p>
+          </div>
+        </div>
+      </section>
+      
+      {/* Filters */}
+      <section className="bg-gray-50 py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+            <h2 className="text-xl font-semibold text-gray-900">
+              Showing {filteredProducts.length} Products
+            </h2>
             <div className="flex space-x-4">
               <Select value={category} onValueChange={setCategory}>
                 <SelectTrigger className="w-40">

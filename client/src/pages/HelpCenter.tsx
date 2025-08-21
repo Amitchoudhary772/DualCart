@@ -63,15 +63,19 @@ export default function HelpCenter() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-white">
       <Navigation />
       
       {/* Page Header */}
-      <section className="bg-white border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <section className="bg-gradient-to-br from-black to-red-900 text-white py-16 lg:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">Help Center</h1>
-            <p className="text-xl text-gray-600">Find answers to commonly asked questions</p>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 lg:mb-6">
+              Help <span className="text-red-400">Center</span>
+            </h1>
+            <p className="text-lg lg:text-xl text-gray-200 max-w-3xl mx-auto">
+              यहाँ मिलेगी सभी problems का solution - We are here to help!
+            </p>
           </div>
         </div>
       </section>

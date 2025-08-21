@@ -13,70 +13,70 @@ export async function seedDatabase() {
     // Add sample products
     const sampleProducts = [
       {
-        name: "Premium Wireless Headphones",
-        description: "High-quality noise-cancelling wireless headphones with 30-hour battery life and crystal-clear sound quality.",
-        price: "4999",
+        name: "boAt Rockerz 450 Wireless Headphones",
+        description: "Premium wireless headphones with boAt signature sound, 15-hour playback और super comfortable fit. Latest technology के साथ crystal clear audio experience.",
+        price: "1999",
         imageUrl: "/src/assets/81djvRJI7UL._UY1100__1755750600277.jpg",
-        category: "Electronics",
+        category: "Audio",
         inStock: true,
         featured: true,
         rating: "4.8",
-        reviewCount: 124
+        reviewCount: 2567
       },
       {
-        name: "MacBook Pro 16-inch",
-        description: "Powerful Apple laptop with M-series chip, perfect for professionals and creators with stunning Retina display.",
-        price: "199999",
+        name: "Apple MacBook Pro M3 16-inch",
+        description: "Professional laptop with M3 chip, 16GB RAM, 512GB SSD। Perfect for developers, designers और content creators। Amazing performance और stunning display के साथ।",
+        price: "189999",
         imageUrl: "/src/assets/mbp16-silver-cto-hero-202410_FMT_WHH_1755750600152.jpeg",
-        category: "Electronics",
+        category: "Laptops",
         inStock: true,
         featured: true,
-        rating: "4.6",
-        reviewCount: 89
+        rating: "4.9",
+        reviewCount: 456
       },
       {
-        name: "Premium Cotton T-Shirt",
-        description: "Comfortable, high-quality cotton t-shirt with modern fit and stylish design. Perfect for casual wear.",
-        price: "799",
+        name: "Premium Cotton Polo T-Shirt",
+        description: "Soft cotton polo tee with modern athletic fit। Comfortable fabric और stylish design। Daily wear के लिए perfect choice। Available in multiple colors.",
+        price: "599",
         imageUrl: "/src/assets/images_1755750599979.jpeg",
         category: "Fashion",
         inStock: true,
         featured: false,
         rating: "4.7",
-        reviewCount: 67
+        reviewCount: 892
       },
       {
-        name: "Travel Backpack",
-        description: "Durable and stylish travel backpack with multiple compartments perfect for adventures and daily use.",
-        price: "2499",
+        name: "Urban Travel Backpack Pro",
+        description: "Spacious travel backpack with laptop compartment, water-resistant material और ergonomic design। Perfect for college, office या travel। 35L capacity के साथ।",
+        price: "1899",
         imageUrl: "/src/assets/images (2)_1755750600018.jpeg",
-        category: "Accessories",
+        category: "Bags",
         inStock: true,
-        featured: false,
-        rating: "4.5",
-        reviewCount: 156
+        featured: true,
+        rating: "4.6",
+        reviewCount: 1234
       },
       {
-        name: "Fresh Juice Blend",
-        description: "Healthy and refreshing fruit juice blend made from premium organic fruits. Perfect for daily nutrition.",
-        price: "299",
+        name: "Fresh Orange Juice Combo Pack",
+        description: "Pure और fresh orange juice pack। 100% natural, no preservatives। Rich in Vitamin C और healthy nutrients। Pack of 6 bottles for family.",
+        price: "199",
         imageUrl: "/src/assets/images (3)_1755750600193.jpeg",
         category: "Food & Beverages",
         inStock: true,
         featured: false,
         rating: "4.9",
-        reviewCount: 43
+        reviewCount: 678
       },
       {
-        name: "Smartphone",
-        description: "Latest smartphone with advanced camera system, fast processor and long-lasting battery life.",
-        price: "45999",
+        name: "Samsung Galaxy A54 5G Smartphone",
+        description: "Latest Samsung smartphone with 50MP triple camera, 6000mAh battery और 5G connectivity। Stylish design के साथ premium features। 8GB RAM + 128GB storage.",
+        price: "32999",
         imageUrl: "/src/assets/images (4)_1755750600475.jpeg",
-        category: "Electronics",
+        category: "Mobiles",
         inStock: true,
         featured: true,
-        rating: "4.4",
-        reviewCount: 78
+        rating: "4.6",
+        reviewCount: 1876
       }
     ];
 

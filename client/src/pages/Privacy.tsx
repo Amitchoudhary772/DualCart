@@ -1,125 +1,97 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function Privacy() {
   return (
     <div className="min-h-screen bg-white">
-      <title>Privacy & Security Policy | ShopMart</title>
-
       <Navigation />
-
-      <section className="pt-24 pb-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-8">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">Privacy & Security Policy</h1>
-            <p className="text-xl text-gray-600">
-              Your privacy and security are our top priorities. Learn how we protect your information.
+      
+      {/* Header */}
+      <section className="bg-gradient-to-br from-black to-red-900 text-white py-16 lg:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 lg:mb-6">
+              Privacy <span className="text-red-400">Policy</span>
+            </h1>
+            <p className="text-lg lg:text-xl text-gray-200 max-w-3xl mx-auto">
+              आपकी privacy हमारी priority है - Your data is safe with us
             </p>
           </div>
+        </div>
+      </section>
 
-          <div className="prose prose-lg max-w-none">
-            <div className="bg-gray-50 p-6 rounded-lg mb-8">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Information We Collect</h2>
-              <ul className="space-y-2">
-                <li>• Personal information (name, email, phone) when you register or contact us</li>
-                <li>• Payment information (processed securely through our payment partners)</li>
-                <li>• Shopping behavior and preferences to improve your experience</li>
-                <li>• Device information and cookies for site functionality and analytics</li>
-              </ul>
-            </div>
+      {/* Content */}
+      <section className="py-16 lg:py-24">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Card className="border border-gray-200">
+            <CardContent className="p-8 lg:p-12">
+              <div className="prose prose-lg max-w-none">
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Information Collection</h2>
+                <p className="text-gray-600 mb-6">
+                  हम सिर्फ वही information collect करते हैं जो आपकी shopping experience improve करने के लिए जरूरी है। इसमें शामिल है:
+                </p>
+                <ul className="list-disc pl-6 text-gray-600 mb-8">
+                  <li>Name, email address, और phone number</li>
+                  <li>Shipping और billing addresses</li>
+                  <li>Payment information (securely processed)</li>
+                  <li>Order history और preferences</li>
+                </ul>
 
-            <div className="bg-gray-50 p-6 rounded-lg mb-8">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">How We Use Your Information</h2>
-              <ul className="space-y-2">
-                <li>• Process orders and provide customer support</li>
-                <li>• Send important updates about your orders and account</li>
-                <li>• Improve our products and services</li>
-                <li>• Protect against fraud and unauthorized access</li>
-                <li>• Comply with legal obligations</li>
-              </ul>
-            </div>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Data Usage</h2>
+                <p className="text-gray-600 mb-6">
+                  आपकी information का use हम निम्न purposes के लिए करते हैं:
+                </p>
+                <ul className="list-disc pl-6 text-gray-600 mb-8">
+                  <li>Orders process करने के लिए</li>
+                  <li>Customer support provide करने के लिए</li>
+                  <li>Product recommendations improve करने के लिए</li>
+                  <li>Promotional offers send करने के लिए (with consent)</li>
+                </ul>
 
-            <div className="bg-gray-50 p-6 rounded-lg mb-8">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Security Measures</h2>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Data Protection</h3>
-                  <ul className="space-y-1 text-sm">
-                    <li>• SSL encryption for all data transmission</li>
-                    <li>• Secure database storage with encryption</li>
-                    <li>• Regular security audits and updates</li>
-                    <li>• Access controls and authentication</li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Payment Security</h3>
-                  <ul className="space-y-1 text-sm">
-                    <li>• PCI DSS compliant payment processing</li>
-                    <li>• No storage of credit card details</li>
-                    <li>• Secure payment gateways (UPI, Cards, Wallets)</li>
-                    <li>• Fraud detection and prevention</li>
-                  </ul>
-                </div>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Data Security</h2>
+                <p className="text-gray-600 mb-6">
+                  हम industry-standard security measures use करते हैं आपकी personal information को protect करने के लिए:
+                </p>
+                <ul className="list-disc pl-6 text-gray-600 mb-8">
+                  <li>SSL encryption for data transmission</li>
+                  <li>Secure servers with regular security updates</li>
+                  <li>Limited access to personal information</li>
+                  <li>Regular security audits और monitoring</li>
+                </ul>
+
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Data Sharing</h2>
+                <p className="text-gray-600 mb-6">
+                  हम आपकी personal information को third parties के साथ sell नहीं करते। हम information share करते हैं सिर्फ:
+                </p>
+                <ul className="list-disc pl-6 text-gray-600 mb-8">
+                  <li>Shipping partners के साथ delivery के लिए</li>
+                  <li>Payment processors के साथ secure transactions के लिए</li>
+                  <li>Legal requirements के case में</li>
+                </ul>
+
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Your Rights</h2>
+                <p className="text-gray-600 mb-6">
+                  आपके पास निम्न rights हैं:
+                </p>
+                <ul className="list-disc pl-6 text-gray-600 mb-8">
+                  <li>अपनी personal information access करने का right</li>
+                  <li>Incorrect information को correct करने का right</li>
+                  <li>Account delete करने का right</li>
+                  <li>Marketing communications को opt-out करने का right</li>
+                </ul>
+
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Contact Us</h2>
+                <p className="text-gray-600">
+                  Privacy policy के बारे में कोई questions हों तो contact करें:
+                  <br />
+                  Email: privacy@digitalaryan21.com
+                  <br />
+                  Phone: +91-XXXX-XXXX
+                </p>
               </div>
-            </div>
-
-            <div className="bg-gray-50 p-6 rounded-lg mb-8">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Your Rights</h2>
-              <ul className="space-y-2">
-                <li>• Access and review your personal information</li>
-                <li>• Request correction of inaccurate data</li>
-                <li>• Request deletion of your account and data</li>
-                <li>• Opt-out of marketing communications</li>
-                <li>• Data portability and transparency</li>
-              </ul>
-            </div>
-
-            <div className="bg-gray-50 p-6 rounded-lg mb-8">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Cookies & Tracking</h2>
-              <p className="mb-4">
-                We use cookies and similar technologies to enhance your browsing experience:
-              </p>
-              <ul className="space-y-2">
-                <li>• Essential cookies for site functionality</li>
-                <li>• Performance cookies to analyze usage</li>
-                <li>• Preference cookies to remember your settings</li>
-                <li>• Marketing cookies for personalized content (with your consent)</li>
-              </ul>
-              <p className="mt-4 text-sm text-gray-600">
-                You can manage cookie preferences through your browser settings.
-              </p>
-            </div>
-
-            <div className="bg-gray-50 p-6 rounded-lg mb-8">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Affiliate Partnerships</h2>
-              <p className="mb-4">
-                We participate in affiliate marketing programs and may earn commissions from qualifying purchases through affiliate links.
-              </p>
-              <ul className="space-y-2">
-                <li>• Affiliate links are clearly marked</li>
-                <li>• We only promote products we believe in</li>
-                <li>• Commissions don't affect the price you pay</li>
-                <li>• We maintain editorial independence</li>
-              </ul>
-            </div>
-
-            <div className="bg-blue-50 border border-blue-200 p-6 rounded-lg">
-              <h2 className="text-2xl font-semibold text-blue-900 mb-4">Contact Us</h2>
-              <p className="text-blue-800 mb-4">
-                If you have questions about this Privacy Policy or how we handle your data, please contact us:
-              </p>
-              <div className="space-y-2 text-blue-800">
-                <p>• Email: privacy@shopmart.com</p>
-                <p>• Phone: +91 9999999999</p>
-                <p>• Address: 123 Business Street, Mumbai, India 400001</p>
-              </div>
-            </div>
-
-            <div className="mt-8 text-sm text-gray-500">
-              <p>Last updated: {new Date().toLocaleDateString()}</p>
-              <p>We may update this Privacy Policy from time to time. Changes will be posted on this page.</p>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
