@@ -24,8 +24,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.use(session({
     secret: 'fake-secret-key',
     resave: false,
-    saveUninitialized: false,
-    cookie: { secure: false, maxAge: 24 * 60 * 60 * 1000 } // 24 hours
+    saveUninitialized: true,
+    cookie: { 
+      secure: false, 
+      httpOnly: true,
+      maxAge: 24 * 60 * 60 * 1000 // 24 hours
+    }
   }));
 
   // Fake Auth routes
