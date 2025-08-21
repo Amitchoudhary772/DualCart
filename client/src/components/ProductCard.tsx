@@ -86,7 +86,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   };
 
   return (
-    <Card className="group hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-gray-900 to-black border border-amber-500/30 hover:border-amber-400/60 transform hover:-translate-y-2">
+    <Card className="group hover:shadow-lg transition-all duration-300 bg-white border border-gray-200 hover:border-red-300 transform hover:-translate-y-1">
       <div className="relative">
         <div className="aspect-square overflow-hidden rounded-t-lg">
           <img
@@ -101,15 +101,15 @@ export default function ProductCard({ product }: ProductCardProps) {
           <Button
             variant="ghost"
             size="sm"
-            className="bg-black/80 backdrop-blur-sm p-2 rounded-full shadow-2xl hover:bg-amber-500/20 border border-amber-500/30"
+            className="bg-white/90 backdrop-blur-sm p-2 rounded-full shadow-md hover:bg-red-50 border border-gray-200"
           >
-            <Heart className="w-4 h-4 text-amber-400" />
+            <Heart className="w-4 h-4 text-gray-600 hover:text-red-600" />
           </Button>
         </div>
 
         {product.featured && (
-          <Badge className="absolute top-2 left-2 bg-gradient-to-r from-amber-500 to-yellow-600 text-black font-bold">
-            ✨ EXCLUSIVE
+          <Badge className="absolute top-2 left-2 bg-red-600 text-white font-bold">
+            BESTSELLER
           </Badge>
         )}
         
@@ -120,13 +120,13 @@ export default function ProductCard({ product }: ProductCardProps) {
         )}
       </div>
 
-      <CardContent className="p-6 bg-gradient-to-b from-gray-900 to-black">
-        <h3 className="text-lg font-semibold text-amber-100 mb-2 line-clamp-2">
+      <CardContent className="p-4 lg:p-6 bg-white">
+        <h3 className="text-base lg:text-lg font-semibold text-gray-900 mb-2 line-clamp-2">
           {product.name}
         </h3>
         
         {product.description && (
-          <p className="text-amber-200/70 mb-4 text-sm line-clamp-2">
+          <p className="text-gray-600 mb-3 lg:mb-4 text-sm line-clamp-2">
             {product.description}
           </p>
         )}
@@ -136,26 +136,26 @@ export default function ProductCard({ product }: ProductCardProps) {
             <div className="flex">
               {renderStars(parseFloat(product.rating))}
             </div>
-            <span className="text-amber-300 text-sm ml-2">
+            <span className="text-gray-500 text-sm ml-2">
               ({product.reviewCount} reviews)
             </span>
           </div>
         )}
 
         {product.category && (
-          <Badge variant="outline" className="mb-3 border-amber-500/50 text-amber-300">
+          <Badge variant="outline" className="mb-3 border-gray-300 text-gray-600">
             {product.category}
           </Badge>
         )}
 
-        <div className="flex justify-between items-center">
-          <span className="text-2xl font-bold bg-gradient-to-r from-amber-300 to-yellow-500 bg-clip-text text-transparent">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
+          <span className="text-xl lg:text-2xl font-bold text-red-600">
             ₹{parseFloat(product.price).toLocaleString()}
           </span>
           <Button
             onClick={handleAddToCart}
             disabled={!product.inStock || addToCartMutation.isPending}
-            className="bg-gradient-to-r from-amber-500 to-yellow-600 text-black hover:from-amber-400 hover:to-yellow-500 font-semibold"
+            className="bg-red-600 text-white hover:bg-red-700 font-semibold w-full sm:w-auto"
           >
             {addToCartMutation.isPending ? "Adding..." : "Add to Cart"}
           </Button>

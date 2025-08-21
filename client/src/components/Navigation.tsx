@@ -37,10 +37,9 @@ export default function Navigation() {
   const navItems = [
     { href: "/", label: "Home" },
     { href: "/shop", label: "Shop" },
+    { href: "/categories", label: "Categories" },
     { href: "/deals", label: "Deals" },
     { href: "/about", label: "About" },
-    { href: "/services", label: "Services" },
-    { href: "/help", label: "Help" },
     { href: "/contact", label: "Contact" },
   ];
 
@@ -59,13 +58,13 @@ export default function Navigation() {
   };
 
   return (
-    <header className="bg-black/95 backdrop-blur-md border-b border-amber-500/20 shadow-2xl sticky top-0 z-50">
+    <header className="bg-white shadow-lg sticky top-0 z-50 border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/">
-              <h1 className="text-3xl font-bold bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent cursor-pointer tracking-wide">
+              <h1 className="text-2xl md:text-3xl font-black text-red-600 cursor-pointer tracking-tight">
                 Digital Aryan 21
               </h1>
             </Link>
@@ -74,15 +73,15 @@ export default function Navigation() {
             <nav className="hidden md:ml-8 md:flex md:space-x-8">
               {navItems.map((item) => (
                 <Link key={item.href} href={item.href}>
-                  <a
-                    className={`px-4 py-2 text-sm font-medium transition-all duration-300 ${
+                  <span
+                    className={`px-3 py-2 text-sm font-medium transition-all duration-300 cursor-pointer ${
                       location === item.href
-                        ? "text-amber-400 border-b-2 border-amber-400"
-                        : "text-amber-100 hover:text-amber-300 hover:scale-105"
+                        ? "text-red-600 border-b-2 border-red-600"
+                        : "text-gray-700 hover:text-red-600"
                     }`}
                   >
                     {item.label}
-                  </a>
+                  </span>
                 </Link>
               ))}
             </nav>
@@ -96,7 +95,7 @@ export default function Navigation() {
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
                 <Input
                   placeholder="Search products..."
-                  className="pl-10 w-64"
+                  className="pl-10 w-48 lg:w-64 border-gray-200 focus:border-red-500"
                 />
               </div>
             </div>
@@ -104,10 +103,10 @@ export default function Navigation() {
             {/* Cart */}
             <Sheet open={isCartOpen} onOpenChange={setIsCartOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="sm" className="relative">
-                  <ShoppingCart className="h-5 w-5" />
+                <Button variant="ghost" size="sm" className="relative hover:bg-red-50">
+                  <ShoppingCart className="h-5 w-5 text-gray-700" />
                   {cartCount > 0 && (
-                    <Badge className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center text-xs bg-accent text-white">
+                    <Badge className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center text-xs bg-red-600 text-white">
                       {cartCount}
                     </Badge>
                   )}
@@ -123,18 +122,18 @@ export default function Navigation() {
               <div className="flex items-center space-x-2">
                 {user?.isAdmin && (
                   <Link href="/admin">
-                    <Button variant="outline" size="sm">
+                    <Button variant="outline" size="sm" className="border-red-600 text-red-600 hover:bg-red-600 hover:text-white">
                       Admin
                     </Button>
                   </Link>
                 )}
-                <Button variant="ghost" size="sm" onClick={handleLogout}>
+                <Button variant="ghost" size="sm" onClick={handleLogout} className="text-gray-700 hover:text-red-600 hover:bg-red-50">
                   <LogOut className="h-4 w-4 mr-2" />
                   Logout
                 </Button>
               </div>
             ) : (
-              <Button variant="ghost" size="sm" onClick={handleLogin}>
+              <Button variant="ghost" size="sm" onClick={handleLogin} className="text-gray-700 hover:text-red-600 hover:bg-red-50">
                 <User className="h-4 w-4 mr-2" />
                 Login
               </Button>
@@ -143,7 +142,7 @@ export default function Navigation() {
             {/* Mobile menu trigger */}
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="sm" className="md:hidden">
+                <Button variant="ghost" size="sm" className="md:hidden text-gray-700 hover:text-red-600 hover:bg-red-50">
                   <Menu className="h-5 w-5" />
                 </Button>
               </SheetTrigger>
@@ -151,16 +150,16 @@ export default function Navigation() {
                 <div className="flex flex-col space-y-4 mt-4">
                   {navItems.map((item) => (
                     <Link key={item.href} href={item.href}>
-                      <a
-                        className={`block px-3 py-2 text-base font-medium transition-colors ${
+                      <span
+                        className={`block px-3 py-2 text-base font-medium transition-colors cursor-pointer ${
                           location === item.href
-                            ? "text-primary"
-                            : "text-gray-700 hover:text-primary"
+                            ? "text-red-600 bg-red-50"
+                            : "text-gray-700 hover:text-red-600"
                         }`}
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         {item.label}
-                      </a>
+                      </span>
                     </Link>
                   ))}
                   

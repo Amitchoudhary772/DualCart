@@ -18,6 +18,7 @@ import Privacy from "@/pages/Privacy";
 import Checkout from "@/pages/Checkout";
 import Auth from "@/pages/Auth";
 import Admin from "@/pages/Admin";
+import Categories from "@/pages/Categories";
 
 function Router() {
   const { isAuthenticated, isLoading } = useAuth();
@@ -33,6 +34,7 @@ function Router() {
         <>
           <Route path="/" component={Landing} />
           <Route path="/shop" component={Shop} />
+          <Route path="/categories" component={Categories} />
           <Route path="/deals" component={AffiliateDeals} />
           <Route path="/about" component={About} />
           <Route path="/services" component={Services} />
@@ -45,6 +47,7 @@ function Router() {
         <>
           <Route path="/" component={Home} />
           <Route path="/shop" component={Shop} />
+          <Route path="/categories" component={Categories} />
           <Route path="/deals" component={AffiliateDeals} />
           <Route path="/about" component={About} />
           <Route path="/services" component={Services} />

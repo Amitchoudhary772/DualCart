@@ -17,19 +17,18 @@ export default function AffiliateCard({ deal }: AffiliateCardProps) {
     Math.round(((parseFloat(deal.originalPrice) - parseFloat(deal.discountPrice)) / parseFloat(deal.originalPrice)) * 100);
 
   return (
-    <Card className="group hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-gray-900 to-black border border-amber-500/30 hover:border-amber-400/60 transform hover:-translate-y-2">
+    <Card className="group hover:shadow-lg transition-all duration-300 bg-white border border-gray-200 hover:border-red-300 transform hover:-translate-y-1">
       <div className="relative">
         <div className="aspect-video overflow-hidden rounded-t-lg">
           <img
             src={deal.imageUrl || "/src/assets/shopping_1755750600114.webp"}
             alt={deal.title}
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
         </div>
         
         <div className="absolute top-2 right-2">
-          <Badge className="bg-gradient-to-r from-amber-500 to-yellow-600 text-black font-bold">
+          <Badge className="bg-red-600 text-white font-bold">
             -{discountPercentage}% OFF
           </Badge>
         </div>

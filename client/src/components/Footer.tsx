@@ -2,12 +2,12 @@ import { Link } from "wouter";
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-black via-gray-900 to-black border-t border-amber-500/20">
+    <footer className="bg-gray-900 border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div>
-            <h3 className="text-3xl font-bold mb-6 bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 bg-clip-text text-transparent">Digital Aryan 21</h3>
+            <h3 className="text-2xl lg:text-3xl font-black mb-6 text-white">Digital <span className="text-red-500">Aryan 21</span></h3>
             <p className="text-amber-100/80 mb-6 font-light">
               Ultra-premium digital excellence and luxury technology solutions. Experience the future of sophisticated commerce.
             </p>

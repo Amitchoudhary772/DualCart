@@ -1,117 +1,168 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Users, Target, Award, TrendingUp } from "lucide-react";
 
 export default function About() {
+  const features = [
+    {
+      icon: Users,
+      title: "50k+ Happy Customers",
+      description: "Trusted by thousands of satisfied customers across India"
+    },
+    {
+      icon: Target,
+      title: "Quality Focus",
+      description: "हमारा मकसद है best quality products affordable prices में देना"
+    },
+    {
+      icon: Award,
+      title: "5 Star Rating",
+      description: "Excellent customer service और product quality के लिए rated"
+    },
+    {
+      icon: TrendingUp,
+      title: "Growing Fast",
+      description: "India's fastest growing e-commerce platform बनने की direction में"
+    }
+  ];
+
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-white">
       <Navigation />
       
-      {/* About Section */}
-      <section className="py-16 bg-white">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-black to-red-900 text-white py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-4xl font-bold text-gray-900 mb-6">About ShopMart</h1>
-              <p className="text-lg text-gray-600 mb-6">
-                We're revolutionizing online shopping by combining our curated product collection with exclusive affiliate deals. Our mission is to provide customers with the best value and variety in one convenient platform.
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+                About <span className="text-red-400">Digital Aryan 21</span>
+              </h1>
+              <p className="text-lg lg:text-xl text-gray-200 mb-8">
+                हमारी शुरुआत एक simple idea से हुई - Best quality products को affordable prices में लोगों तक पहुंचाना। आज हम India के leading e-commerce platforms में से एक हैं।
               </p>
-              <p className="text-lg text-gray-600 mb-8">
-                Founded in 2024, ShopMart has grown to become a trusted destination for quality products and amazing deals. We carefully select every product in our store and partner with reputable brands to bring you the best affiliate offers.
-              </p>
-              
-              <div className="grid grid-cols-2 gap-6 mb-8">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary mb-2">5000+</div>
-                  <div className="text-gray-600">Products</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary mb-2">50k+</div>
-                  <div className="text-gray-600">Happy Customers</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary mb-2">100+</div>
-                  <div className="text-gray-600">Partner Brands</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary mb-2">25+</div>
-                  <div className="text-gray-600">Countries</div>
-                </div>
-              </div>
-              
-              <div className="flex space-x-4">
-                <Button className="bg-primary text-white px-6 py-3 hover:bg-blue-700">
-                  Contact Us
-                </Button>
-                <Button variant="outline" className="border-primary text-primary px-6 py-3 hover:bg-primary hover:text-white">
-                  Our Story
-                </Button>
-              </div>
+              <Button 
+                className="bg-red-600 text-white hover:bg-red-700 px-8 py-3"
+                onClick={() => window.location.href = "/shop"}
+              >
+                Shop Now
+              </Button>
             </div>
-            
-            <div className="grid grid-cols-2 gap-4">
-              <img 
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200" 
-                alt="Our Team" 
-                className="rounded-lg shadow-lg"
-              />
-              <img 
-                src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200" 
-                alt="Customer Service" 
-                className="rounded-lg shadow-lg mt-8"
-              />
-              <img 
-                src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200" 
-                alt="Warehouse" 
-                className="rounded-lg shadow-lg -mt-8"
-              />
-              <img 
-                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200" 
-                alt="Quality Control" 
-                className="rounded-lg shadow-lg"
-              />
+            <div className="relative">
+              <div className="bg-red-600/20 rounded-lg p-8 backdrop-blur-sm">
+                <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
+                <p className="text-gray-200">
+                  Quality products को affordable prices में पहुंचाना और customers को best shopping experience देना। हमारा vision है कि हर Indian को अच्छे products easily available हों।
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Mission & Values */}
-      <section className="py-16 bg-gray-50">
+      {/* Features */}
+      <section className="py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Mission & Values</h2>
-            <p className="text-lg text-gray-600">What drives us every day</p>
+          <div className="text-center mb-12 lg:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+              Why Choose <span className="text-red-600">Us?</span>
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              हमें choose करने के कई reasons हैं - Quality, affordability, और excellent service
+            </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-8 bg-white rounded-xl shadow-sm">
-              <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            {features.map((feature, index) => {
+              const IconComponent = feature.icon;
+              return (
+                <Card key={index} className="group hover:shadow-lg transition-all duration-300 border border-gray-200 hover:border-red-300">
+                  <CardContent className="p-6 text-center">
+                    <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <IconComponent className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-3">
+                      {feature.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm">
+                      {feature.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Story Section */}
+      <section className="bg-gray-50 py-16 lg:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="order-2 lg:order-1">
+              <div className="bg-white rounded-lg p-8 shadow-md">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Story</h3>
+                <p className="text-gray-600 mb-4">
+                  2021 में जब हमने Digital Aryan 21 शुरू किया, तो हमारा goal था कि quality products को reasonable prices में provide करना। हमने देखा कि market में बहुत सारे overpriced products हैं।
+                </p>
+                <p className="text-gray-600 mb-4">
+                  आज हमारे पास 1000+ products हैं और 50,000+ satisfied customers हैं। हमारी success का secret है - customer satisfaction और quality assurance।
+                </p>
+                <p className="text-gray-600">
+                  हमारी team constantly work करती है better products find करने के लिए और customers को best deals provide करने के लिए।
+                </p>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Quality First</h3>
-              <p className="text-gray-600">We carefully curate every product to ensure the highest quality standards for our customers.</p>
             </div>
-            
-            <div className="text-center p-8 bg-white rounded-xl shadow-sm">
-              <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-                </svg>
+            <div className="order-1 lg:order-2">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-red-600 text-white p-6 rounded-lg text-center">
+                  <div className="text-3xl font-bold mb-2">1000+</div>
+                  <div className="text-sm">Products</div>
+                </div>
+                <div className="bg-gray-900 text-white p-6 rounded-lg text-center">
+                  <div className="text-3xl font-bold mb-2">50k+</div>
+                  <div className="text-sm">Customers</div>
+                </div>
+                <div className="bg-green-600 text-white p-6 rounded-lg text-center">
+                  <div className="text-3xl font-bold mb-2">500+</div>
+                  <div className="text-sm">Cities</div>
+                </div>
+                <div className="bg-blue-600 text-white p-6 rounded-lg text-center">
+                  <div className="text-3xl font-bold mb-2">4.8/5</div>
+                  <div className="text-sm">Rating</div>
+                </div>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Best Value</h3>
-              <p className="text-gray-600">Our hybrid model allows us to offer competitive prices on our products and exclusive affiliate deals.</p>
             </div>
-            
-            <div className="text-center p-8 bg-white rounded-xl shadow-sm">
-              <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Customer First</h3>
-              <p className="text-gray-600">Your satisfaction is our priority. We provide exceptional service and support at every step.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Team Values */}
+      <section className="py-16 lg:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+            Our <span className="text-red-600">Values</span>
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+            <div className="p-6">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Quality First</h3>
+              <p className="text-gray-600">
+                हम सिर्फ authentic और high-quality products ही sell करते हैं। Customer satisfaction हमारी priority है।
+              </p>
+            </div>
+            <div className="p-6">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Affordable Pricing</h3>
+              <p className="text-gray-600">
+                हमारा belief है कि good products expensive नहीं होने चाहिए। सबको affordable prices मिलें।
+              </p>
+            </div>
+            <div className="p-6">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Customer Care</h3>
+              <p className="text-gray-600">
+                हमारी team हमेशा ready है help करने के लिए। Any problem हो तो we are here for you.
+              </p>
             </div>
           </div>
         </div>

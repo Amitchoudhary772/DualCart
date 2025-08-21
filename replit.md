@@ -2,12 +2,13 @@
 
 ## Overview
 
-Digital Aryan 21 is an ultra-premium luxury e-commerce platform that combines sophisticated product sales with exclusive affiliate marketing. The application features a React frontend with TypeScript Express backend, utilizing PostgreSQL with Drizzle ORM for data management. The platform showcases a high-end luxury aesthetic with premium black/gold color schemes, elegant typography using Playfair Display and Montserrat fonts, and sophisticated animations. Users experience an exclusive shopping environment with carefully curated products and premium deals from elite brand partners.
+Digital Aryan 21 is a modern e-commerce platform inspired by boAt's design aesthetics, combining product sales with affiliate marketing. The application features a React frontend with TypeScript Express backend, utilizing PostgreSQL with Drizzle ORM for data management. The platform showcases a boAt-inspired design with red/black/white color schemes, mobile-first responsive design, and modern user interface elements. Users experience a contemporary shopping environment with quality products at affordable prices, featuring both Hindi and English content for broader appeal.
 
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
-Brand identity: "Digital Aryan 21" - Ultra-premium luxury quality design with black/gold color theme.
+Brand identity: "Digital Aryan 21" - Modern boAt-inspired design with red/black/white color theme.
+Design requirements: Mobile-first responsive design, boAt-style aesthetics, Hindi+English content support.
 
 ## System Architecture
 

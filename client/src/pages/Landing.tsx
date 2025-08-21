@@ -17,45 +17,36 @@ export default function Landing() {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black">
+    <div className="min-h-screen bg-white">
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-black via-amber-900/20 to-black text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-amber-500/10 via-transparent to-amber-600/10"></div>
+      <section className="relative bg-gradient-to-br from-black to-red-900 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-red-600/10 via-transparent to-red-800/10"></div>
         <div className="absolute top-0 left-0 w-full h-full">
-          <div className="absolute top-10 left-10 w-32 h-32 bg-amber-400/20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-20 w-48 h-48 bg-amber-500/15 rounded-full blur-3xl"></div>
+          <div className="absolute top-10 left-10 w-32 h-32 bg-red-500/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-20 w-48 h-48 bg-red-600/15 rounded-full blur-3xl"></div>
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
           <div className="text-center">
-            <h1 className="text-5xl md:text-8xl font-serif font-black mb-8 bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 bg-clip-text text-transparent leading-tight">
-              Digital Aryan 21
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-black mb-6 lg:mb-8 text-white leading-tight">
+              <span className="text-red-500">Digital</span> Aryan <span className="text-red-500">21</span>
             </h1>
-            <p className="text-xl md:text-3xl mb-12 max-w-4xl mx-auto text-amber-100/90 font-light tracking-wide">
-              Experience Ultra-Premium Digital Excellence • Luxury Technology Solutions • Exclusive Collections
+            <p className="text-lg sm:text-xl lg:text-2xl mb-8 lg:mb-12 max-w-4xl mx-auto text-gray-200 font-medium">
+              अपने लिए बेस्ट टेक्नोलॉजी चुनें • Premium Quality Products • Affordable Prices
             </p>
-            <div className="flex flex-col sm:flex-row gap-8 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 lg:gap-8 justify-center items-center">
               <Button 
-                className="bg-gradient-to-r from-amber-500 to-yellow-600 text-black px-12 py-4 text-lg font-semibold hover:from-amber-400 hover:to-yellow-500 hover:scale-105 transition-all duration-300 shadow-2xl"
+                className="bg-red-600 text-white px-8 lg:px-12 py-3 lg:py-4 text-base lg:text-lg font-bold hover:bg-red-700 transition-all duration-300 shadow-lg w-full sm:w-auto"
                 onClick={() => window.location.href = "/shop"}
               >
-                Explore Premium Collection
+                Shop Now
               </Button>
               <Button 
-                className="bg-transparent border-2 border-amber-400 text-amber-300 px-12 py-4 text-lg font-semibold hover:bg-amber-400 hover:text-black hover:scale-105 transition-all duration-300"
+                className="bg-transparent border-2 border-red-500 text-red-400 px-8 lg:px-12 py-3 lg:py-4 text-base lg:text-lg font-bold hover:bg-red-600 hover:text-white transition-all duration-300 w-full sm:w-auto"
                 onClick={() => window.location.href = "/deals"}
               >
-                Exclusive Offers
-              </Button>
-            </div>
-            <div className="mt-12">
-              <Button 
-                size="lg" 
-                className="bg-gradient-to-r from-black to-gray-900 border border-amber-500 text-amber-400 px-16 py-6 text-xl font-bold hover:bg-gradient-to-r hover:from-amber-500 hover:to-yellow-600 hover:text-black hover:scale-110 transition-all duration-500 shadow-2xl"
-                onClick={() => window.location.href = "/auth"}
-              >
-                Enter Exclusive Access
+                Best Deals
               </Button>
             </div>
           </div>
@@ -63,15 +54,18 @@ export default function Landing() {
       </section>
 
       {/* Featured Products */}
-      <section className="py-24 bg-gradient-to-br from-gray-900 via-black to-gray-900 border-t border-amber-500/20">
+      <section className="py-16 lg:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-serif font-bold bg-gradient-to-r from-amber-300 to-yellow-500 bg-clip-text text-transparent mb-6">Premium Collection</h2>
-            <p className="text-xl text-amber-100/80 max-w-2xl mx-auto font-light">Meticulously curated luxury items that define excellence and sophistication</p>
+          <div className="text-center mb-12 lg:mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 lg:mb-6">
+              Best Selling Products
+            </h2>
+            <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
+              High quality products at best prices - जो आपको चाहिए, वो यहाँ मिलेगा
+            </p>
           </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {featuredProducts.slice(0, 4).map((product) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {featuredProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
@@ -79,14 +73,18 @@ export default function Landing() {
       </section>
 
       {/* Affiliate Deals */}
-      <section className="py-24 bg-gradient-to-br from-black via-amber-900/10 to-black border-t border-amber-500/20">
+      <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-serif font-bold bg-gradient-to-r from-yellow-400 to-amber-500 bg-clip-text text-transparent mb-6">Exclusive Partnerships</h2>
-            <p className="text-xl text-amber-100/80 max-w-2xl mx-auto font-light">Privileged access to ultra-premium deals from our elite brand partners</p>
+          <div className="text-center mb-12 lg:mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 lg:mb-6">
+              Special <span className="text-red-600">Deals</span>
+            </h2>
+            <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
+              Limited time offers से मिलेगी extra savings - Don't miss out!
+            </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {affiliateDeals.slice(0, 3).map((deal) => (
               <AffiliateCard key={deal.id} deal={deal} />
             ))}
